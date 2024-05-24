@@ -1,25 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Squares from './squares';
+import Board from './board';
 
 function App() {
+  const [currState, setState] = useState(0);
+
+  const clickButton = (decrease:boolean) => {
+    if (decrease) {
+        setState(prevState => prevState - 1); // Use functional update to access previous state
+    } else {
+        setState(prevState => prevState + 1); // Use functional update to access previous state
+    }
+    return true
+};
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. Chinga chinga bro.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div> 
+        <button onClick={()=> clickButton(true)}> Increase board {currState} </button>
+        <button onClick={()=> clickButton(false)}> Decrease board {currState} </button>
+      </div>
+      <div>
+        <Board boardLength={currState}></Board>
+      
+      </div>
       </header>
+    
     </div>
+
   );
 }
 

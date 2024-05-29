@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Squares from './squares';
+import Turn from './turn';
 
 interface Props {
     boardLength: number;
@@ -41,6 +42,7 @@ function Board({ boardLength, boardArray, setBoardArray, currentPlayer, setCurre
     return (
         <div className="board">
             {renderSquares()}
+            <Turn player={currentPlayer}/>
         </div>
     );
 }

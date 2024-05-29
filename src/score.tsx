@@ -6,6 +6,7 @@ interface Props{
     currentPlayer: number;
 }
 
+//  still buggy
 function Score({boardArray, setBoardArray, currentPlayer}: Props){
     var final;
 
@@ -74,7 +75,6 @@ function Score({boardArray, setBoardArray, currentPlayer}: Props){
         // const initialBoard = new Array(boardArray.length).fill(result);
         // setBoardArray(initialBoard);
 
-        
     }
     else{
         final = null;

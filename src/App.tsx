@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Squares from './squares';
 import Board from './board';
+import Score from './score';
 
 function App() {
   const [currState, setState] = useState(0);
@@ -31,11 +32,10 @@ function App() {
         <button onClick={()=> clickButton(false)}> Increase board {currState} </button>
       </div>
       <div>
-        <Board boardLength={currState} boardArray={currBoard} setBoardArray={setBoard} currentPlayer={currPlayer} setCurrentPlayer={setCurrentPlayer}></Board>
-      
+      <Score boardArray={currBoard} setBoardArray={setBoard} currentPlayer={currPlayer}></Score>
+      <Board boardLength={currState} boardArray={currBoard} setBoardArray={setBoard} currentPlayer={currPlayer} setCurrentPlayer={setCurrentPlayer}></Board>
       </div>
       </header>
-    
     </div>
 
   );

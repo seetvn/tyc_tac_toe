@@ -7,24 +7,30 @@ import Board from './board';
 function App() {
   const [currState, setState] = useState(0);
 
+  const [currBoard, setBoard] = useState(new Array(currState**2))
+  
+  const[currPlayer, setCurrentPlayer] = useState(0);
+
   const clickButton = (decrease:boolean) => {
-    if (decrease) {
+    if (decrease && currState != 0) {
         setState(prevState => prevState - 1); // Use functional update to access previous state
+        setBoard(currBoard.fill(''));
     } else {
         setState(prevState => prevState + 1); // Use functional update to access previous state
+        setBoard(currBoard.fill(''));
     }
-    return true
+    
 };
 
   return (
     <div className="App">
       <header className="App-header">
         <div> 
-        <button onClick={()=> clickButton(true)}> Increase board {currState} </button>
-        <button onClick={()=> clickButton(false)}> Decrease board {currState} </button>
+        <button onClick={()=> clickButton(true)}> Decrease board {currState} </button>
+        <button onClick={()=> clickButton(false)}> Increase board {currState} </button>
       </div>
       <div>
-        <Board boardLength={currState}></Board>
+        <Board boardLength={currState} boardArray={currBoard} setBoardArray={setBoard} currentPlayer={currPlayer} setCurrentPlayer={setCurrentPlayer}></Board>
       
       </div>
       </header>

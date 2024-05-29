@@ -11,6 +11,7 @@ function App() {
   
   const[currPlayer, setCurrentPlayer] = useState(0);
 
+  // takes in board length
   const clickButton = (decrease:boolean) => {
     if (decrease && currState != 0) {
         setState(prevState => prevState - 1); // Use functional update to access previous state
